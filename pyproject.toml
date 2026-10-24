@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ica-handla"
+version = "0.1.0"
+description = "Unofficial ICA Handla CLI and client (shopping lists, recipes, offers, stores, products)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "klppl", email = "" }]
+keywords = ["ica", "handla", "shopping-list", "sweden", "cli"]
+dependencies = ["requests>=2.28"]
+
+[project.optional-dependencies]
+browser = ["playwright>=1.40"]
+mcp = ["mcp>=1.2"]
+dev = ["pytest>=7", "responses>=0.23"]
+
+[project.scripts]
+ica = "ica_handla.cli:main"
+ica-handla-mcp = "ica_handla.mcp_server:main"
+
+[tool.setuptools]
+packages = ["ica_handla"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
